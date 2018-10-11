@@ -8,15 +8,15 @@
 
 *AWS Access*
 
-* You have an account with access to AWS console
-* You have enough privileges to access EC2 services
-* (if not already done) Register your accound on [AWS Educate](https://www.awseducate.com/registration)
+* You have an account with access to AWS console.
+* You have enough privileges to access EC2 services.
+* (if not already done) Register your accound on [AWS Educate](https://www.awseducate.com/registration).
 
 *For windows users*
 
-* On your favorite browser, open [Putty Download Page](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
-* Download ssh client : [putty.exe (the SSH and Telnet client)](https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe)
-* Download RSA key formatter : [puttygen.exe (a RSA and DSA key generation utility)](https://the.earth.li/~sgtatham/putty/latest/w64/puttygen.exe)
+* On your favorite browser, open [Putty Download Page](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+* Download ssh client : [putty.exe (the SSH and Telnet client)](https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe).
+* Download RSA key formatter : [puttygen.exe (a RSA and DSA key generation utility)](https://the.earth.li/~sgtatham/putty/latest/w64/puttygen.exe).
  
  
 ### 1. AWS EC2 Service
@@ -25,20 +25,20 @@
 First, launch a distant computation instance (EC2) :
 
 
-1. Connect to AWS console
-1. Set the region to UE (Paris) : top-right corner of your AWS console homepage
-1. Select [EC2 Service](https://eu-west-3.console.aws.amazon.com/ec2/), and click on **launch instance**
-1. Select `Ubuntu Server 18.04 LTS`, then select `t2.micro` and click `Next: Configure Instance Details`
-1. In step **6. Configure security group** : click `Add Rule`, and add the following rule(Be sure to **add** a rule, do not overwrite existing rules) :
+1. Connect to AWS console.
+1. Set the region to UE (Paris) : top-right corner of your AWS console homepage.
+1. Select [EC2 Service](https://eu-west-3.console.aws.amazon.com/ec2/), and click on **launch instance**.
+1. Select `Ubuntu Server 18.04 LTS`, then `t2.micro` and click `Next: Configure Instance Details`.
+1. In step **6. Configure security group** : click `Add Rule`, and add the following rule (be sure to **add** a rule, do not overwrite existing rules) :
 
     ```
     <type==Custom TCP Rule ; Port range == 8888 ; Source==Anywhere>
     ```
     
     
-1. Click **launch**
-1. **/!\ Very Important /!\\** create a key pair, name it `SL_key_pair` for example, and download it to your workspace
-1. You should be able to click **Launch instances** by now
+1. Click **launch**.
+1. **/!\ Very Important /!\\** create a key pair, name it `SL_key_pair` for example, and download it to your workspace.
+1. You should be able to click **Launch instances** by now.
 
 
 ### 2. SSH To Your instance
@@ -64,9 +64,9 @@ First, you need to get some information:
 Windows does not include a built-in ssh client. You'll use Putty :
 1. Open PuttyGen, and load your <key_pair.pem>. If you used the suggested name, you would load `SL_key_pair.pem`. Then save the private key.
 1. Open Putty.exe
-1. Put your DNS address in the "Host Name (or IP address)" field
-1. Click Connection-> Data, and put your username in the "Auto-login username" field
-1. Click Connection-> SSH -> Auth -> Browse, and select the private key you saved in step 1
+1. Put your DNS address in the "Host Name (or IP address)" field.
+1. Click Connection-> Data, and put your username in the "Auto-login username" field.
+1. Click Connection-> SSH -> Auth -> Browse, and select the private key you saved in step 1.
 1. Click Open.
 
 
@@ -88,7 +88,7 @@ Windows does not include a built-in ssh client. You'll use Putty :
 
 ### Installation and Configuration
 
-By now you should be connected to your distant instance. Next : install python prerequisites
+By now you should be connected to your distant instance. Next : install python prerequisites.
 
 1. install pip :
 
@@ -113,7 +113,7 @@ By now you should be connected to your distant instance. Next : install python p
     ```
     
     
-1. The username will be preceded by `(venv)` on your terminal, it is perfectly normal.
+1. The username will be preceded by `(venv)` on your terminal, this is normal.
 1. Install jupyter notebook :
 
     ```
@@ -158,7 +158,7 @@ Now you need to configure jupyter in order to access it publicly.
     nano jupyter_notebook_config.py
     ```
     
-1. On the top of the file, paste the following code (Remember to put the password you generated (u'sha1:...') in the correct place) :
+1. On the top of the file, paste the following code (remember to put the password you generated (u'sha1:...') in the correct place) :
 
     ```
     c = get_config()
@@ -177,8 +177,7 @@ Now you need to configure jupyter in order to access it publicly.
     c.NotebookApp.ip = '0.0.0.0'  # listen on all IPs
     ```
     
-1. Most of your problems will come from the previous step. remember, the file you are writing is a `.py`, so pay attention to indentation.
-   When you are done, You can save : `Ctrl+O`, then quite : `Ctrl+X`.
+1. Most of your problems will come from the previous step. Remember, the file you are writing is a `.py`, so pay attention to indentation. You can save : `Ctrl+O`, then quite : `Ctrl+X`.
 1. Finally you can launch your notebook:
 
     ```
@@ -196,7 +195,7 @@ Now you need to configure jupyter in order to access it publicly.
 
     ```source venv/bin/activate```
     
-1. Each time you disconnect fromthe ssh session, the server will be closed. If you want to keep it running :
+1. Each time you disconnect from the ssh session, the server will be closed. If you want to keep it running :
     
     ```
     nohup jupyter notebook &
@@ -209,7 +208,7 @@ Now you need to configure jupyter in order to access it publicly.
     pip install <package-name>
     ```
     
-If you want to install multiple packages, you can put them in a file and install them using pip:
+If you want to install multiple packages, you can put them in a requirements file and install them using pip:
 1. create a requirements file: 
 
     ```
