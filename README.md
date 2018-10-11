@@ -29,7 +29,7 @@ First, launch a distant computation instance (EC2) :
 1. Set the region to UE (Paris) : top-right corner of your AWS console homepage
 1. Select [EC2 Service](https://eu-west-3.console.aws.amazon.com/ec2/), and click on **launch instance**
 1. Select `Ubuntu Server 18.04 LTS`, then select `t2.micro` and click `Next: Configure Instance Details`
-1. In step **6. Configure security group** : click `Add Rule`, and add the following rule :
+1. In step **6. Configure security group** : click `Add Rule`, and add the following rule(Be sure to **add** a rule, do not overwrite existing rules) :
 
     ```
     <type==Custom TCP Rule ; Port range == 8888 ; Source==Anywhere>
